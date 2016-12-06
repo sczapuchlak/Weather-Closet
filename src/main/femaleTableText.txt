@@ -1,4 +1,4 @@
-1	"Peacoat"	"Black Slacks"	"High Heels"	"Chunky Scarf"	"Super Cold"	"Business"
+1	"Peacoat"   "Black Slacks"  "High Heels"	"Chunky Scarf"	"Super Cold"	"Business"
 2	"Anorak"	"Skinny Jeans"	"Moon Boots"	"Furry Hat"	"Super Cold"	"Casual"
 3	"Fleece Jogger"	"Sweat Pants"	"Tennis Shoes"	"Beanie"	"Super Cold"	"Sporty"
 4	"Parka with Dress Underneath"	"Black Tights"	"Wellingtons"	"Light Scarf"	"Super Cold"	"Event"
