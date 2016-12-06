@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class FinalDB {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";        //Configure the driver needed
     static final String DB_CONNECTION_URL = "jdbc:mysql://localhost:3306/FinalsDB";     //Connection string – where's the database?
-    static final String USER = "mikey";
-    static final String PASSWORD = "mikedodge";
+    static final String USER = "sczapuchlak";
+    static final String PASSWORD = "stardust123";
     private static final String TABLE_NAME = "femalesuggestions";
     private static final String ID_NUMBER = "idNumber";
     private static final String TOP_COL = "FemaleTopSuggestions";
