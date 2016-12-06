@@ -38,6 +38,7 @@ public class Main  {
         }
         //this is my url for my hometown of Wisconsin Dells just as a test
         // the key is the part starting with 36
+        // this will be the city and state search String urlForSanFran = "http://api.wunderground.com/api/36fce18324ae645a/conditions/q/"+stateName+"/"+cityName+".json";
         String urlForSanFran = "http://api.wunderground.com/api/36fce18324ae645a/conditions/q/WI/Wisconsin_Dells.json";
         String url = String.format(urlForSanFran, key);
         // after connecting the ASync up  create a new async client .
