@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 public class FinalDB {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";        //Configure the driver needed
-    static final String DB_CONNECTION_URL = "jdbc:mysql://localhost:3306/FinalDB";     //Connection string – where's the database?
-    static final String USER = "sczapuchlak";
-    static final String PASSWORD = "stardust123";
+    static final String DB_CONNECTION_URL = "jdbc:mysql://localhost:3306/FinalsDB";     //Connection string – where's the database?
+    static final String USER = "mikey";
+    static final String PASSWORD = "mikedodge";
     private static final String TABLE_NAME = "femalesuggestions";
     private static final String ID_NUMBER = "idNumber";
     private static final String TOP_COL = "FemaleTopSuggestions";
@@ -26,17 +26,17 @@ public class FinalDB {
         }
     }
 
-    void createTable(){
+    public void createTable(){
 
         try (Connection conn= DriverManager.getConnection(DB_CONNECTION_URL,USER,PASSWORD);
              Statement statement = conn.createStatement()) {
             //You should have already created a database via terminal/command prompt OR MySQL Workbench
 
             //Create a table in the database, if it does not exist already
-            String createTableSQLTemplate= "CREATE TABLE IF NOT EXISTS FinalsDB (idNumber int(20), TopColumn varchar(20), BottomsColumn varchar(20)" +
-                    "ShoesColumn varchar(20), AccessoriesColumn varchar(20), TemperatureColumn varchar(10), OccasionColumn(10), PRIMARY KEY(idNumber))" ;
+            String createTableSQLTemplate= "CREATE TABLE IF NOT EXISTS FinalsDB (idNumber int(20) PRIMARY KEY, TopColumn varchar(20), BottomsColumn varchar(20)," +
+                    "ShoesColumn varchar(20), AccessoriesColumn varchar(20), TemperatureColumn varchar(10), OccasionColumn varchar(10))" ;
             String createTableSQL = String.format(createTableSQLTemplate,ID_NUMBER,TABLE_NAME,TOP_COL,BOTTOM_COL,SHOES_COL,ACCESSORIES_COL,TOP_COL,OCCASION_COL);
-
+            System.out.println(createTableSQL);
             statement.executeUpdate(createTableSQL);
             System.out.println("Created Female Clothing Suggestion Table!");
 

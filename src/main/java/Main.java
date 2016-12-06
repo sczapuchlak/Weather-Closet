@@ -19,13 +19,16 @@ import java.io.IOException;
 
 
 
-public class Main {
+public class Main  {
 
     public static void main(String[] args) {
 
+        FinalDB finalDB = new FinalDB();
+        finalDB.createTable();
 
         //create gui and instantiate it
         FinalProjectGUI gui = new FinalProjectGUI();
+
 
         String key = readKey();
 
@@ -39,6 +42,7 @@ public class Main {
         String url = String.format(urlForSanFran, key);
         // after connecting the ASync up  create a new async client .
         AsyncHttpClient newAsyncClient = new DefaultAsyncHttpClient();
+
         newAsyncClient.prepareGet(url).execute(new AsyncCompletionHandler<Response>() {
             @Override
             public Response onCompleted(Response response) throws Exception {
