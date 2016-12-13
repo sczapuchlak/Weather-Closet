@@ -26,6 +26,7 @@ public class Main  {
 
         FinalDB finalDB = new FinalDB();
         finalDB.createTable();
+        finalDB.addDataToTable();
         finalDB.selectingHotQueries();
 
         //create gui and instantiate it
