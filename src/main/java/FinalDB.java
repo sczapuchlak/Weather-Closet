@@ -1,7 +1,7 @@
 import java.sql.*;
 import java.util.Scanner;
 
-public class FinalDB {
+public class FinalDB extends FinalProjectGUI {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";        //Configure the driver needed
     static final String DB_CONNECTION_URL = "jdbc:mysql://localhost:3306/FinalsDB";     //Connection string – where's the database?
     static final String USER = "sczapuchlak";
@@ -16,7 +16,7 @@ public class FinalDB {
     private static final String OCCASION_COL = "FemaleOccasionColumn";
     Scanner newScanner = new Scanner(System.in);
 
-    FinalDB(){
+    FinalDB() {
         try {
             Class.forName(JDBC_DRIVER);
         } catch (ClassNotFoundException cnfe) {
@@ -24,6 +24,8 @@ public class FinalDB {
             cnfe.printStackTrace();
             System.exit(-1);  //No driver? Need to fix before anything else will work. So quit the program
         }
+
+
     }
 
     public void createTable(){
@@ -33,9 +35,10 @@ public class FinalDB {
             //You should have already created a database via terminal/command prompt OR MySQL Workbench
 
             //Create a table in the database, if it does not exist already
-            String createTableSQLTemplate= "CREATE TABLE IF NOT EXISTS FinalsDB (idNumber int(20) PRIMARY KEY, TopColumn varchar(20), BottomsColumn varchar(20)," +
+            String createTableSQLTemplate= "CREATE TABLE IF NOT EXISTS femalesuggestions (idNumber int(20) PRIMARY KEY, TopColumn varchar(20), BottomsColumn varchar(20)," +
                     "ShoesColumn varchar(20), AccessoriesColumn varchar(20), TemperatureColumn varchar(10), OccasionColumn varchar(10))" ;
             String createTableSQL = String.format(createTableSQLTemplate,ID_NUMBER,TABLE_NAME,TOP_COL,BOTTOM_COL,SHOES_COL,ACCESSORIES_COL,TOP_COL,OCCASION_COL);
+
             System.out.println(createTableSQL);
             statement.executeUpdate(createTableSQL);
             System.out.println("Created Female Clothing Suggestion Table!");
@@ -48,32 +51,37 @@ public class FinalDB {
             se.printStackTrace();
         }
     }
-    void addDataToTable(){
-        //Connect to the connection again
-        try (Connection conn= DriverManager.getConnection(DB_CONNECTION_URL,USER,PASSWORD);
-             Statement statement = conn.createStatement()) {
-            //add data to table
-            String preparedStatementInsert = "INSERT INTO TABLE_NAME VALUES(?,?,?,?,?,?)";
-            PreparedStatement psInsert = conn.prepareStatement(preparedStatementInsert);
-            //  psInsert.setInt(1,1);psInsert.setString(2,"Peacoat");psInsert.setString(3,"Black Slacks");psInsert.setString(4,"High Heels");psInsert.setString(5,"Chunky Scarf");psInsert.setString(6,"super cold");psInsert.setString(7, "Business");
-            //psInsert.setInt(1,2);psInsert.setString(2,"Anorak") ;psInsert.setString(3,"Black Slacks");psInsert.setString(4,"High Heels");psInsert.setString(5,"Chunky Scarf");psInsert.setString(6,"super cold");psInsert.setString(7, "Business");
-            //psInsert.setInt(1,3);psInsert.setString(2, "Fleece Jogger");psInsert.setString(3,"Black Slacks");psInsert.setString(4,"High Heels");psInsert.setString(5,"Chunky Scarf");psInsert.setString(5,"super cold");psInsert.setString(7, "Business");
-            //psInsert.setInt(1,4);psInsert.setString(2,"Peacoat");psInsert.setString(3,"Black Slacks");psInsert.setString(4,"High Heels");psInsert.setString(5,"Chunky Scarf");psInsert.setString(6,"super cold");psInsert.setString(7, "Business");
+    void selectingQueries(){
+        
+            try(
+                Connection conn= DriverManager.getConnection(DB_CONNECTION_URL,USER,PASSWORD);
+                Statement statement = conn.createStatement()) {
+
+              //if (){
+                String selectAllSQL = "SELECT * FROM " + TABLE_NAME;
+            ResultSet rsAll = statement.executeQuery(selectAllSQL);
+                while (rsAll.next()) {
+                    String name = rsAll.getObject(1).toString();
+                    String gender = rsAll.getObject(2).toString();
+                    System.out.println("The ID Number is " + name + " and you should wear a " + gender);
+                    //Queries for Super cold weather and different Occasions
+                    //"SELECT * FROM femalesuggestions WHERE TEMP = 'super' AND OCCASION = 'Business'";
+                   // "SELECT * FROM "+ TABLE_NAME "WHERE TEMP = 'super' AND OCCASION = 'Casual'";
+                   // "SELECT * FROM "+ TABLE_NAME "WHERE TEMP = 'super' AND OCCASION = 'Athletic'";
+                  //  "SELECT * FROM "+ TABLE_NAME "WHERE TEMP = 'super' AND OCCASION = 'Event'";
 
 
-
-
-
-
-
-
-
-
-
-
+            }
+                rsAll.close();
+                statement.close();
+                conn.close();
 
         } catch (SQLException se) {
             se.printStackTrace();
+
+
+
+
         }
     }
 }
