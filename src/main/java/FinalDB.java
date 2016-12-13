@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class FinalDB {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";        //Configure the driver needed
-    static final String DB_CONNECTION_URL = "jdbc:mysql://localhost:3306/FinalsDB";     //Connection string – where's the database?
+    static final String DB_CONNECTION_URL = "jdbc:mysql://localhost:3306/FinalDB";     //Connection string – where's the database?
     static final String USER = "root";
     static final String PASSWORD = "itecitec";
     private static final String TABLE_NAME = "femalesuggestions";
@@ -64,29 +64,29 @@ public class FinalDB {
         try (Connection conn= DriverManager.getConnection(DB_CONNECTION_URL,USER,PASSWORD);
              Statement statement = conn.createStatement()) {
             //add data to table
-            String preparedStatementInsert = "INSERT INTO TABLE_NAME VALUES(?,?,?,?,?,?,?)";
+            String preparedStatementInsert = "INSERT INTO  VALUES(?,?,?,?,?,?,?)";
             PreparedStatement psInsert = conn.prepareStatement(preparedStatementInsert);
             psInsert.setInt(1,1);psInsert.setString(2,"Peacoat");psInsert.setString(3,"Black Slacks");psInsert.setString(4,"High Heels");psInsert.setString(5,"Chunky Scarf");psInsert.setString(6,"super cold");psInsert.setString(7, "Business");
             psInsert.setInt(1,2);psInsert.setString(2,"Anorak") ;psInsert.setString(3,"Skinny Jeans");psInsert.setString(4,"Moon Boots");psInsert.setString(5,"Furry Hat");psInsert.setString(6,"super cold");psInsert.setString(7, "Casual");
-            psInsert.setInt(1,3);psInsert.setString(2, "Fleece Jogger");psInsert.setString(3,"Sweatpants");psInsert.setString(4,"Athletic Shoes");psInsert.setString(5,"Beanie");psInsert.setString(5,"super cold");psInsert.setString(7, "Athletic");
+            psInsert.setInt(1,3);psInsert.setString(2, "Fleece Jogger");psInsert.setString(3,"Sweatpants");psInsert.setString(4,"Athletic Shoes");psInsert.setString(5,"Beanie");psInsert.setString(6,"super cold");psInsert.setString(7, "Athletic");
             psInsert.setInt(1,4);psInsert.setString(2,"Parka With A Dress");psInsert.setString(3,"Black Slacks");psInsert.setString(4,"Wedged Booties");psInsert.setString(5,"Light Scarf");psInsert.setString(6,"super cold");psInsert.setString(7, "Event");
             psInsert.setInt(1,5);psInsert.setString(2,"Trenchcoat");psInsert.setString(3,"Black Slacks");psInsert.setString(4,"Wedged Booties");psInsert.setString(5,"Gloves");psInsert.setString(6,"cold");psInsert.setString(7, "Business");
             psInsert.setInt(1,6);psInsert.setString(2,"Leather Jacket") ;psInsert.setString(3,"Jeans");psInsert.setString(4,"Hiking Boots");psInsert.setString(5,"Light Scarf");psInsert.setString(6," cold");psInsert.setString(7, "Casual");
-            psInsert.setInt(1,7);psInsert.setString(2, "Fleece Jogger");psInsert.setString(3,"Yoga Pants");psInsert.setString(4,"Tennis Shoes");psInsert.setString(5,"Earmuffs");psInsert.setString(5,"cold");psInsert.setString(7, "Athletic");
+            psInsert.setInt(1,7);psInsert.setString(2, "Fleece Jogger");psInsert.setString(3,"Yoga Pants");psInsert.setString(4,"Tennis Shoes");psInsert.setString(5,"Earmuffs");psInsert.setString(6,"cold");psInsert.setString(7, "Athletic");
             psInsert.setInt(1,8);psInsert.setString(2,"Blazer");psInsert.setString(3,"Black Slacks");psInsert.setString(4,"Chunky Heels");psInsert.setString(5,"Red Lipstick");psInsert.setString(6,"cold");psInsert.setString(7, "Event");
             psInsert.setInt(1,9);psInsert.setString(2,"Blazer");psInsert.setString(3,"Black Slacks");psInsert.setString(4,"Knee High Boots");psInsert.setString(5,"Hairbow");psInsert.setString(6,"medium");psInsert.setString(7, "Business");
             psInsert.setInt(1,10);psInsert.setString(2,"Duster") ;psInsert.setString(3,"Black Leggings");psInsert.setString(4,"Moccassin Boots");psInsert.setString(5,"Fringed Purse");psInsert.setString(6,"medium");psInsert.setString(7, "Casual");
-            psInsert.setInt(1,11);psInsert.setString(2, "Long Sleeve Zip-Up");psInsert.setString(3,"Yoga Pants");psInsert.setString(4,"Running Shoes");psInsert.setString(5,"Fitbit");psInsert.setString(5,"medium");psInsert.setString(7, "Athletic");
+            psInsert.setInt(1,11);psInsert.setString(2, "Long Sleeve Zip-Up");psInsert.setString(3,"Yoga Pants");psInsert.setString(4,"Running Shoes");psInsert.setString(5,"Fitbit");psInsert.setString(6,"medium");psInsert.setString(7, "Athletic");
             psInsert.setInt(1,12);psInsert.setString(2,"Blazer");psInsert.setString(3,"Pencil Skirt");psInsert.setString(4,"Ballet Flats");psInsert.setString(5,"Earrings");psInsert.setString(6,"medium");psInsert.setString(7, "Event");
             psInsert.setInt(1,13);psInsert.setString(2,"Printed Tunic");psInsert.setString(3,"Black Tights");psInsert.setString(4,"Knee High Boots");psInsert.setString(5,"Watch");psInsert.setString(6,"warm");psInsert.setString(7, "Business");
             psInsert.setInt(1,14);psInsert.setString(2,"Band T-Shirt") ;psInsert.setString(3,"Jean Shorts");psInsert.setString(4,"Gladiator Sandals");psInsert.setString(5,"Fringed Purse");psInsert.setString(6,"warm");psInsert.setString(7, "Casual");
-            psInsert.setInt(1,15);psInsert.setString(2, "Tank Top");psInsert.setString(3,"Athletic Shorts");psInsert.setString(4,"Running Shoes");psInsert.setString(5,"Baseball Hat");psInsert.setString(5,"warm");psInsert.setString(7, "Athletic");
+            psInsert.setInt(1,15);psInsert.setString(2, "Tank Top");psInsert.setString(3,"Athletic Shorts");psInsert.setString(4,"Running Shoes");psInsert.setString(5,"Baseball Hat");psInsert.setString(6,"warm");psInsert.setString(7, "Athletic");
             psInsert.setInt(1,16);psInsert.setString(2,"Dress");psInsert.setString(3,"Thigh high socks");psInsert.setString(4,"Wedged High Heels");psInsert.setString(5,"Necklace");psInsert.setString(6,"warm");psInsert.setString(7, "Event");
             psInsert.setInt(1,17);psInsert.setString(2,"Billowy Tank Top");psInsert.setString(3,"Black Slacks");psInsert.setString(4,"Open Toed Heels");psInsert.setString(5,"Earrings");psInsert.setString(6,"hot");psInsert.setString(7, "Business");
             psInsert.setInt(1,18);psInsert.setString(2,"Sundress") ;psInsert.setString(3,"Thigh High Socks");psInsert.setString(4,"Flip Flops");psInsert.setString(5,"Sunglasses");psInsert.setString(6,"hot");psInsert.setString(7, "Casual");
-            psInsert.setInt(1,19);psInsert.setString(2, "Tank Top");psInsert.setString(3,"Bicycle Shorts");psInsert.setString(4,"Tennis Shoes");psInsert.setString(5,"Headband");psInsert.setString(5,"hot");psInsert.setString(7, "Athletic");
-            psInsert.setInt(1,20);psInsert.setString(2,"Tank Top Blouse");psInsert.setString(3,"Pencil Skirt");psInsert.setString(4,"Espadrilles");psInsert.setString(5,"Lipstick");psInsert.setString(6,"hot");psInsert.setString(7, "Event");
-            psInsert.executeUpdate();
+            psInsert.setInt(1,19);psInsert.setString(2, "Tank Top");psInsert.setString(3,"Bicycle Shorts");psInsert.setString(4,"Tennis Shoes");psInsert.setString(5,"Headband");psInsert.setString(6,"hot");psInsert.setString(7, "Athletic");
+            psInsert.setInt(1,20);psInsert.setString(2,"Blouse");psInsert.setString(3,"Pencil Skirt");psInsert.setString(4,"Espadrilles");psInsert.setString(5,"Lipstick");psInsert.setString(6,"hot");psInsert.setString(7, "Event");
+            //psInsert.executeUpdate();
             System.out.println("Values Added!");
 
             psInsert.close();
