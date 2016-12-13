@@ -19,16 +19,17 @@ import java.util.Scanner;
 
 
 
-public class Main extends FinalProjectGUI {
+public class Main  {
     static Scanner userInput = new Scanner(System.in);
 
     public static void main(String[] args) {
 
         FinalDB finalDB = new FinalDB();
         finalDB.createTable();
-        finalDB.selectingQueries();
+        finalDB.selectingHotQueries();
+
         //create gui and instantiate it
-        FinalProjectGUI gui = new FinalProjectGUI();
+        FinalProjectGUI gui = new FinalProjectGUI(finalDB);
 
 
     }}
