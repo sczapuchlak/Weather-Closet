@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class FinalDB {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";        //Configure the driver needed
     static final String DB_CONNECTION_URL = "jdbc:mysql://localhost:3306/FinalsDB";     //Connection string – where's the database?
-    static final String USER = "sczapuchlak";
-    static final String PASSWORD = "stardust123";
+    static final String USER = "root";
+    static final String PASSWORD = "itecitec";
     private static final String TABLE_NAME = "femalesuggestions";
     private static final String ID_NUMBER = "idNumber";
     private static final String TOP_COL = "FemaleTopSuggestions";
@@ -86,9 +86,10 @@ public class FinalDB {
             psInsert.setInt(1,18);psInsert.setString(2,"Sundress") ;psInsert.setString(3,"Thigh High Socks");psInsert.setString(4,"Flip Flops");psInsert.setString(5,"Sunglasses");psInsert.setString(6,"hot");psInsert.setString(7, "Casual");
             psInsert.setInt(1,19);psInsert.setString(2, "Tank Top");psInsert.setString(3,"Bicycle Shorts");psInsert.setString(4,"Tennis Shoes");psInsert.setString(5,"Headband");psInsert.setString(5,"hot");psInsert.setString(7, "Athletic");
             psInsert.setInt(1,20);psInsert.setString(2,"Tank Top Blouse");psInsert.setString(3,"Pencil Skirt");psInsert.setString(4,"Espadrilles");psInsert.setString(5,"Lipstick");psInsert.setString(6,"hot");psInsert.setString(7, "Event");
-
+            psInsert.executeUpdate();
             System.out.println("Values Added!");
 
+            psInsert.close();
         } catch (SQLException se) {
             se.printStackTrace();
         }

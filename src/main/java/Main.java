@@ -17,7 +17,10 @@ import java.util.Scanner;
 //TODO: cont. >50 AND <=68 is medium temp. > 68 AND <= 80 is warm. >80 is hot. This will be the guide
 //TODO: for how the database shoots back with what to wear.
 
-
+//initialize sql codes:
+//create user 'sczapuchlak'@'localhost'
+  //      create database finalsDB;
+    //    grant select, insert,delete,create,update,drop on finalsDB.* to 'sczapuchlak'@'localhost'
 
 public class Main  {
     static Scanner userInput = new Scanner(System.in);
@@ -25,6 +28,7 @@ public class Main  {
     public static void main(String[] args) {
 
         FinalDB finalDB = new FinalDB();
+
         finalDB.createTable();
         finalDB.addDataToTable();
         finalDB.selectingHotQueries();
