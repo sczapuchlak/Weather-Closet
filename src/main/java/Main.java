@@ -24,13 +24,13 @@ public class Main  {
 
     public static void main(String[] args) {
 
-        FinalDB finalDB = new FinalDB();
-        finalDB.createTable();
-        finalDB.addDataToTable();
-        finalDB.selectingHotQueries();
+        FinalDB weatherCloset = new FinalDB();
+        weatherCloset.createTable();
+        weatherCloset.addDataToTable();
+        weatherCloset.selectingHotQueries();
 
         //create gui and instantiate it
-        FinalProjectGUI gui = new FinalProjectGUI(finalDB);
+        FinalProjectGUI gui = new FinalProjectGUI(weatherCloset);
 
 
     }}

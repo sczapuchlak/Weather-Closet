@@ -37,8 +37,8 @@ public class FinalProjectGUI extends JFrame {
 
 
 
-    protected FinalProjectGUI(final FinalDB finalDB) {
-        //store a reference to the controller object. need it to make requests to database
+    protected FinalProjectGUI(final FinalDB weatherCloset) {
+
 
         super("Weather Closet");
 
@@ -61,13 +61,13 @@ public class FinalProjectGUI extends JFrame {
         //yesRadioButton.addActionListener();
         //noRadioButton.addActionListener();
         //check to see if the yes or no radio buttons are checked
-       yesRadioButton.addItemListener(new ItemListener() {
-           @Override
-           public void itemStateChanged(ItemEvent e) {
-             if (yesRadioButton.isSelected()){
-                 accessoryResult.setText(finalDB.selectingAccessories());
-             }
-           }
+        yesRadioButton.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (yesRadioButton.isSelected()){
+                    accessoryResult.setText(weatherCloset.selectingAccessories());
+                }
+            }
        });
        noRadioButton.addItemListener(new ItemListener() {
            @Override
@@ -133,24 +133,24 @@ public class FinalProjectGUI extends JFrame {
 
                         if (current_temp<= 30){
                            resultsLabel2.setText("Brrrr! ");
-                           clothingResults.setText(finalDB.selectingSuperColdQueries());
-                           ;
+                           clothingResults.setText(weatherCloset.selectingSuperColdQueries());
+
                         }
                         if (current_temp>30 && current_temp <= 50){
                             resultsLabel2.setText("It's still kind of chilly!");
-                            clothingResults.setText(finalDB.selectingColdQueries());
+                            clothingResults.setText(weatherCloset.selectingColdQueries());
                         }
                         if (current_temp>50 && current_temp<= 68){
                             resultsLabel2.setText("It's starting to get warmer!");
-                            clothingResults.setText(finalDB.selectingMediumQueries());
+                            clothingResults.setText(weatherCloset.selectingMediumQueries());
                         }
                         if (current_temp>68 && current_temp<= 80){
                             resultsLabel2.setText("It's kinda toasty, isn't it?");
-                            clothingResults.setText(finalDB.selectingWarmQueries());
+                            clothingResults.setText(weatherCloset.selectingWarmQueries());
                         }
                         if (current_temp>80){
                             resultsLabel2.setText("WHY IS IT SO HOT!?");
-                            clothingResults.setText(finalDB.selectingHotQueries());
+                            clothingResults.setText(weatherCloset.selectingHotQueries());
                         }
                     } catch (JSONException je) {
                         System.out.println("An error occurred while processing your response. I am unable to make a " +
