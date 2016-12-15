@@ -66,7 +66,9 @@ public class FinalProjectGUI extends JFrame {
             public void itemStateChanged(ItemEvent e) {
                 if (yesRadioButton.isSelected()){
                     accessoryResult.setText(weatherCloset.selectingAccessories());
+                    ;yesRadioButton.setSelected(false);
                 }
+
             }
        });
        noRadioButton.addItemListener(new ItemListener() {

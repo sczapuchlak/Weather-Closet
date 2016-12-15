@@ -1,6 +1,10 @@
+import com.sun.glass.ui.Size;
 import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 import java.util.Scanner;
 
 public class FinalDB {
@@ -107,10 +111,14 @@ public class FinalDB {
                 Statement statement = conn.createStatement()) {
             String selectAcces = "SELECT AccessoriesColumn FROM WeatherCloset.TABLE_NAME";
             ResultSet rsAccess = statement.executeQuery(selectAcces);
+            ArrayList<String> AccessoryChoices = new ArrayList<String>();
             while (rsAccess.next()) {
-                String accessH = rsAccess.getObject("AccessoriesColumn").toString();
+               AccessoryChoices.add(rsAccess.getString(1));
+               Collections.shuffle(AccessoryChoices);
+               String AccessSuggest = AccessoryChoices.get(0);
+
                 //print what to wear
-                finished = "To accessorize you should wear a : "+ accessH;
+                finished = "To accessorize you should wear a : "+AccessSuggest;
             }
         }     catch (SQLException se) {
         se.printStackTrace();
@@ -118,6 +126,9 @@ public class FinalDB {
 
     }return finished;
 }
+
+
+
     public String selectingSuperColdQueries() {
 
         String finished = null;
